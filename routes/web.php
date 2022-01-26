@@ -14,35 +14,17 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['namespace' => 'Admin', 'prefix'=>'admin'], function (){
-    //home for admin after login is correct
-    Route::get('/home','MainController@index')->name('admin.home'); 
 
-    ///route for authentication admin
-    Route::get('login', 'AuthController@login')->name('admin-login');
-    Route::post('login-check', 'AuthController@loginCheck')->name('login-check');
+    //students module
+    Route::resource('students','StudentController');    
 
-    Route::group(['middleware' => 'auth:admin'], function(){
-    //room module
-    Route::resource('rooms','RoomController');    
+    //schools module
+    Route::resource('schools','SchoolController');    
 
-    //logout for admin
-    Route::get('logout', 'AuthController@logout')->name('admin.logout');
-
-
-    });
 });
-Route::group(['namespace' => 'User'], function (){
-
-    ///store boobing for user
-    Route::post('booking_user', 'BookingController@Store')->name('booking_user');
-    
-});
-//logout for user
-Route::get('user\logout', 'Auth\LoginController@logout')->name('user.logout');
 
 
 

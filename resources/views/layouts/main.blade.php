@@ -80,11 +80,10 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="{{route('admin.home')}}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">room</span>
+          <span class="logo-mini">students</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>room</b></span>
+          <span class="logo-lg"><b>students</b></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -99,23 +98,17 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="{{ URL::asset('adminlte/images/shoghl.png') }}" class="user-image" alt="User Image">
-                  <span class="hidden-xs">{{optional(Auth::user())->username }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="{{ URL::asset('adminlte/images/shoghl.png') }}" class="img-circle" alt="User Image">
-                    <p>
-                        {{ optional(Auth::user())->username }}
-                    </p>
+                  =
                   </li>
 
                   <!-- Menu Footer-->
                   <li class="user-footer">
                   
                     <div class="">
-                      <a href="{{route('admin.logout')}}" class="btn btn-default btn-flat">تسجيل خروج</a>
                     </div>
                   </li>
                 </ul>
@@ -135,40 +128,33 @@
               <img src="{{ URL::asset('adminlte/images/shoghl.png') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>{{optional(Auth::user())->username}}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> متاح</a>
             </div>
           </div>
-          <!-- search form -->
-          {{-- <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="بحث ...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form> --}}
-          <li class="treeview sidebar-form" > <a href="{{route('admin.home')}}"> <h3 style="color: #4b8dba; text-align: center"> <img src="{{ URL::asset('adminlte/images/shoghl.png') }}" class="user-image" alt="User Image" width="25" height="25"> الصفحة الرئيسية </h3> </a> </li>
-
+     
+      
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
+              <li class="header"> schools</li>
+                <li class="{{ active_menu('schools')[0] }} treeview">
+                  <a href="#">
+                    <i class=""></i> <span>schools</span> <i class="fa fa-angle-left pull-left"></i>
+                  </a>
+                  <ul class="treeview-menu" style="">
+                      <li class=""><a href="{{route('schools.index')}}"><i class="fa fa-user"></i>schools</a></li>
+                  </ul>
+                </li>
 
-
-            <li class="header"> rooms</li>
-            <li class="{{ active_menu('room')[0] }} treeview">
-              <a href="#">
-                <i class=""></i> <span>Rooms</span> <i class="fa fa-angle-left pull-left"></i>
-              </a>
-              <ul class="treeview-menu" style="">
-                  <li class=""><a href="{{route('rooms.index')}}"><i class="fa fa-user"></i>Rooms</a></li>
-              </ul>
-            </li>
-
-
-  
-
-
+              <li class="header"> students</li>
+                <li class="{{ active_menu('students')[0] }} treeview">
+                  <a href="#">
+                    <i class=""></i> <span>students</span> <i class="fa fa-angle-left pull-left"></i>
+                  </a>
+                  <ul class="treeview-menu" style="">
+                      <li class=""><a href="{{route('students.index')}}"><i class="fa fa-user"></i>students</a></li>
+                  </ul>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->

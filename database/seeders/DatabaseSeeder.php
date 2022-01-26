@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use  Database\Seeders\CreateStudentSeeder;
+use  Database\Seeders\CreateSchoolSeeder;
 
 
 class DatabaseSeeder extends Seeder
@@ -12,6 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(CreateStudentSeeder::class);
+        $this->call(CreateSchoolSeeder::class);
     }
 }
